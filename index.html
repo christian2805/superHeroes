@@ -6,24 +6,95 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
+      .hero {
+        /* display: grid;
+        grid-template-columns: repeat(1, 1fr); */
+      }
       .hero:nth-child(odd) {
+        background-color: red;
+      }
+      #form {
+        background-color: black;
+        color: white;
+        display: none;
+        grid-template-columns: repeat(1, 1fr);
+        height: 200px;
+      }
+      #form2 {
+        background-color: black;
+        color: white;
+        display: none;
+        grid-template-columns: repeat(1, 1fr);
+        height: 200px;
+      }
+      textarea:valid,
+      input:valid {
+        background-color: lightgreen;
+        opacity: 0.9;
+      }
+      input:focus {
+        border-color: lightblue;
+      }
+      input:not(:valid):not(:focus):not(:placeholder-shown) {
+        background-color: red;
+      }
+      button {
+        margin: 20px;
+      }
+      #fakehero {
+        margin: 20px;
+      }
+      .notValid {
         background-color: red;
       }
     </style>
   </head>
   <body>
-    <button class="adding">
+    <fieldset id="f1">
+      <button class="make">Make a Hero?</button>
+
+      <legend>Make A Hero</legend>
+      <h4></h4>
+      <form id="form">
+        <label for="">Hero-name <input class="field" placeholder="Hero name" id="heroName" type="text" name="name" required/></label>
+        <label for="">Hero real-name <input class="field" placeholder="Real name" id="realName" type="text" name="real-name" required/></label>
+        <label for="">Hero age <input class="field" placeholder="Age" id="heroAge" type="number" name="age" id="age" min="1" max="420" step="1"/></label>
+        <label for=""
+          >Superpowers
+          <textarea cols="20" rows="5" class="field" id="heroPowers"></textarea>
+        </label>
+        <button type="submit" class="adding">Make Hero</button>
+      </form>
+    </fieldset>
+    <fieldset id="f2">
+      <legend>Edit A Hero</legend>
+      <button class="edit">Edit a Hero?</button>
+      <form id="form2">
+        <label for="">Hero-name <input class="field" placeholder="Hero name" id="heroName" type="text" name="name" required/></label>
+        <label for="">Hero real-name <input class="field" placeholder="Real name" id="realName" type="text" name="realname" required/></label>
+        <label for="">Hero age <input class="field" placeholder="age" id="heroAge" type="number" name="age" id="age" min="1" max="420" step="1"/></label>
+        <label for=""
+          >Superpowers
+          <textarea cols="20" rows="5" class="field" id="heroPowers" name="powers"></textarea>
+          <input type="hidden" name="id" />
+        </label>
+        <button type="submit" class="">Edit Hero</button>
+      </form>
+    </fieldset>
+    <!-- <button class="adding">
       Add Hero
-    </button>
+    </button> -->
     <div id="app"></div>
     <template>
       <article class="hero">
         <h1></h1>
         <h2></h2>
-        <p></p>
         <p class="age"></p>
         <button class="del">
           Delete this fucker
+        </button>
+        <button class="edit">
+          Edit
         </button>
       </article>
     </template>
